@@ -41,7 +41,7 @@ namespace ProyectoSorting
             Console.WriteLine("Initial: " + time.ElapsedMilliseconds + "ms " + time.ElapsedTicks + "ticks");
 
             time.Reset();
-            
+
             time.Start();
 
             func(temp);
@@ -68,7 +68,7 @@ namespace ProyectoSorting
             {
                 for (int j = 0; j < array.Length - 1; j++)
                 {
-                    if(array[j] > array[j + 1])
+                    if (array[j] > array[j + 1])
                     {
                         int temp = array[j];
                         array[j] = array[j + 1];
@@ -85,7 +85,7 @@ namespace ProyectoSorting
                 ordered = true;
                 for (int j = 0; j < array.Length - 1; j++)
                 {
-                    if(array[j] > array[j + 1])
+                    if (array[j] > array[j + 1])
                     {
                         ordered = false;
                         int temp = array[j];
@@ -103,7 +103,7 @@ namespace ProyectoSorting
         }
         public void QuickSort(int[] array, int left, int right)
         {
-            if(left < right)
+            if (left < right)
             {
                 int pivot = QuickSortPivot(array, left, right);
                 QuickSort(array, left, pivot);
@@ -123,7 +123,7 @@ namespace ProyectoSorting
                 {
                     right--;
                 }
-                if(left >= right)
+                if (left >= right)
                 {
                     return right;
                 }
@@ -140,12 +140,12 @@ namespace ProyectoSorting
         public void InsertionSort(int[] array)
         {
             //Consideraremos que el primer elemento del array ya esta ordenado (inv = 1).
-            for(int inv = 1; inv < array.Length; inv++)
+            for (int inv = 1; inv < array.Length; inv++)
             {
                 int num = array[inv];   //Cogemos el valor del número situado en la posición "inv" del array.
                 int j = inv - 1;        //Guardamos la posición del último elemento de la parte ordenada.
 
-                while(j >= 0 && array[j] > num) //Mientras que no hayamos llegado al primer valor ordenado y los valores sean menores al guardado en "num", 
+                while (j >= 0 && array[j] > num) //Mientras que no hayamos llegado al primer valor ordenado y los valores sean menores al guardado en "num", 
                 {
                     array[j + 1] = array[j];    //Correremos los valores una posición a la derecha (simplemente nos desaparecera la posición de array[inv] y no afectará
                                                 //al array ya que lo tenemos guardado en la variable "num" y posteriormente la colocaremos en el espació que quedará libre).
@@ -168,7 +168,7 @@ namespace ProyectoSorting
                 {
                     //Comparamos los valores del array con el primer elemento no ordenado. En caso de que alguno sea menor, guardaremos en "min" el índice de dicho valor
                     //de la array. De esta manera siempre obtendremos el valor mínimo.
-                    if(array[j] < array[min])
+                    if (array[j] < array[min])
                     {
                         min = j;
                     }
@@ -185,7 +185,6 @@ namespace ProyectoSorting
             array[y] = aux;
         }
     }
-
     class Program
     {
         static void Main(string[] args)
