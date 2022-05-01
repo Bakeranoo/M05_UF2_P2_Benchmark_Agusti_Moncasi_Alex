@@ -54,5 +54,21 @@ namespace SortingTest
             //Assert
             Assert.IsTrue(Enumerable.SequenceEqual(temp, sortArray.arrayCreciente));
         }
+
+        [TestMethod]
+        public void SelectionSort_Test()
+        {
+            //Arrenge
+            Random random = new Random();
+            SortingArray sortArray = new SortingArray(10000, random);
+            int[] temp = new int[sortArray.array.Length];
+            Array.Copy(sortArray.array, temp, sortArray.array.Length);
+
+            //Act
+            sortArray.SelectionSort(temp);
+
+            //Assert
+            Assert.IsTrue(Enumerable.SequenceEqual(temp, sortArray.arrayCreciente));
+        }
     }
 }

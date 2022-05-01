@@ -154,6 +154,36 @@ namespace ProyectoSorting
                 array[j + 1] = num;     //Cuando los valores ya no sean más grandes que "num" pondremos el valor en el espacio vacío (j + 1).
             }
         }
+
+        public void SelectionSort(int[] array)
+        {
+            //Recorremos todo el array
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                //Creamos la variable "min" donde guardaremos la posición donde pondremos el valor más bajo una vez detectado. En esta ocasión guardamos "i" ya que
+                //si ninguno de los valores es más pequeño que el de dicha posición, no hace falta ordenarlo.
+                int min = i;
+                //Ahora recorremos el array desde la última posición ordenada hasta el final del array.
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    //Comparamos los valores del array con el primer elemento no ordenado. En caso de que alguno sea menor, guardaremos en "min" el índice de dicho valor
+                    //de la array. De esta manera siempre obtendremos el valor mínimo.
+                    if (array[j] < array[min])
+                    {
+                        min = j;
+                    }
+                }
+                //Finalmente cambiamos los valores de posición con la función swap.
+                swap(array, i, min);
+            }
+        }
+
+        public void swap(int[] array, int x, int y)
+        {
+            int aux = array[x];
+            array[x] = array[y];
+            array[y] = aux;
+        }
     }
     class Program
     {
@@ -171,6 +201,7 @@ namespace ProyectoSorting
             array.Sort(array.BubbleSortEarlyExit);
             array.Sort(array.QuickSort);
             array.Sort(array.InsertionSort);
+            array.Sort(array.SelectionSort);
         }
     }
 }
